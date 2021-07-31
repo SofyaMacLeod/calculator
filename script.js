@@ -1,8 +1,9 @@
-var money = 1;
-var income = 25;
-var addExpenses = 100;
-var deposit = 25;
-var mission = 25;
-var period = 1; 
+/*jshint esversion: 6 */
+let money,
+income,
+addExpenses, 
+deposit,
+mission,
+period;
 alert("Hello");
 console.log("Test");
