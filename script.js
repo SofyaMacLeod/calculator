@@ -12,5 +12,5 @@ console.log(typeof money, typeof income, typeof deposit);
 console.log(addExpenses.length);
 console.log("Период равен", period, "месяцев"); 
 console.log("Цель заработать", mission, "рублей");
-console.log(addExpenses.toLocaleLowerCase(), addExpenses.split(', '));
+console.log(addExpenses.toLocaleLowerCase().split(', '));
 console.log("budgetDay", budgetDay, "рублей"); 
