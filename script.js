@@ -1,25 +1,31 @@
 /*jshint esversion: 6 */
 'use sctrict';
 const 
-  money = 1000,
   income = "main work",
-  addExpenses = "food, internet",
-  mission = 10000,
-  period = 1,
-  deposit = true,
-  budgetDay = 900;
+  mission = 100000,
+  period = 1;
+
+  let money = prompt('Ваш месячный доход');
+  let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
+  let deposit = confirm('Есть ли у вас депозит в банке?');
 
   console.log(typeof money, typeof income, typeof deposit); 
   console.log(addExpenses.length);
   console.log("Период равен", period, "месяцев"); 
   console.log("Цель заработать", mission, "рублей");
   console.log(addExpenses.toLocaleLowerCase().split(', '));
-  console.log("budgetDay", budgetDay, "рублей"); 
+  
 
-  let question = prompt('Ваш месячный доход');
-  let question2 = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
-  let question3 = prompt('Есть ли у вас депозит в банке?');
-  let question4 = prompt('Введите обязательную статью расходов?');
-  let question5 = prompt('Во сколько это обойдется?');
-  let question6 = prompt('Введите обязательную статью расходов?');
-  let question7 = prompt('Во сколько это обойдется?');
+  let expenses1 = prompt('Введите обязательную статью расходов?');
+  let amount1 = prompt('Во сколько это обойдется?');
+  let expenses2 = prompt('Введите обязательную статью расходов?');
+  let amount2 = prompt('Во сколько это обойдется?');
+
+  let budgetMonth = money - amount1 - amount2;
+  console.log("Бюджет месяц", budgetMonth, "рублей"); 
+  let budgetDay = (money - amount1 - amount2)/30;
+  console.log("Бюджет на день", budgetDay, "рублей"); 
+  if (budgetDay > 1200) {console.log("У вас высокий уровень дохода");}
+    else if (budgetDay > 600, budgetDay <= 1200) {console.log("У вас средний уровень дохода");}
+    else if (budgetDay >= 0, budgetDay <= 600) {console.log("К сожалению у вас уровень дохода ниже среднего");}
+    else {console.log("Что-то пошло не так");}
