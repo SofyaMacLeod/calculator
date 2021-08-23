@@ -1,12 +1,11 @@
 /*jshint esversion: 6 */
 'use sctrict';
 
-let isNumber = function(n){
+const isNumber = function(n){
   return !isNaN(parseFloat(n)) && isFinite(n);
 };
 
-let money,
-  start = function(){
+const start = function(){
     money = prompt('Ваш месячный доход');
     while (!isNumber(money)){
     money = prompt('Ваш месячный доход');
@@ -15,10 +14,8 @@ let money,
 
 start();
 
-
-
   
-let appData = {
+const appData = {
           income: {},
           addIncome: [],
           expenses: {},
@@ -26,8 +23,14 @@ let appData = {
           deposit: false,
           mission: 50000,
           period: 3,
+          budget: money,
+          budgetDay: 0,
+          budgetMonth: 0,
+          expensesMonth: 0,
+          
           asking: function(){
-            let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
+            
+            const addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
                 appData.addExpenses = addExpenses.toLocaleLowerCase().split(',');
                 appData.deposit = confirm('Есть ли у вас депозит в банке?');
                 for (let i = 0; i < 2; i++) {
@@ -38,14 +41,10 @@ let appData = {
                   }
                   while (!isNaN(sum));
                   appData.expenses[expenses] = +sum;
-                }
+                }       
             },
-          budget: money,
-          budgetDay: 0,
-          budgetMonth: 0,
-          expensesMonth: 0,
-
-          getBudget: function () {
+          
+            getBudget: function () {
             appData.budgetMonth = appData.budget - appData.expenses;
             appData.budgetDay = Math.floor(+appData.budgetMonth / 30);
           }, 
@@ -62,14 +61,18 @@ let appData = {
             else if (appData.budgetDay >= 0, appData.budgetDay <= 600) {return("К сожалению у вас уровень дохода ниже среднего");}
             else {return("Что-то пошло не так");}
           },
-             
+               
     };
-
-  console.log("Бюджет на день", appData.budgetDay, "рублей"); 
-  console.log(appData.getStatusIncome());  
+  
   appData.asking();
-    
- 
+  console.log(appData.getStatusIncome());  
+  for (let key in appData){
+    console.log('Наша программа включает в себя данные' + 'Ключ:' + key + 'Значение:' + appData[key]);
+  }
+  for (let expensesMonth in expenses[i]){
+    console.log('Расходы за месяц', Object.expensesMonth(expenses[i]).lenght);    
+  }         
+  
   
   
    
