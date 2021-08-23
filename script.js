@@ -18,7 +18,7 @@ start();
 const appData = {
           income: {},
           addIncome: [],
-          expenses: {},
+          expenses: [],
           addExpenses:[],
           deposit: false,
           mission: 50000,
@@ -27,6 +27,7 @@ const appData = {
           budgetDay: 0,
           budgetMonth: 0,
           expensesMonth: 0,
+          sum: 0,
           
           asking: function(){
             
@@ -34,14 +35,16 @@ const appData = {
                 appData.addExpenses = addExpenses.toLocaleLowerCase().split(',');
                 appData.deposit = confirm('Есть ли у вас депозит в банке?');
                 for (let i = 0; i < 2; i++) {
-                  expenses[i] = prompt(`Введите обязательную статью расходов`);
-                  let sum;
+                  appData.expenses[i] = prompt(`Введите обязательную статью расходов`);
                   do {
-                    sum += +prompt('Во сколько это обойдется?');
+                    appData.expenses[i] = +prompt('Во сколько это обойдется?');
                   }
-                  while (!isNaN(sum));
-                  appData.expenses[expenses] = +sum;
-                }       
+                  while (isNaN(appData.expenses[i]));
+                } 
+
+                for (let key in appData.expenses){
+                console.log(key + ':' + appData.expenses[key]);
+                }
             },
           
             getBudget: function () {
@@ -63,15 +66,21 @@ const appData = {
           },
                
     };
-  
+
   appData.asking();
-  console.log(appData.getStatusIncome());  
+  console.log(appData.getTargetMonth()); 
+  console.log(appData.getStatusIncome()); 
+  console.log ('Наша программа включает в себя данные');
+
   for (let key in appData){
-    console.log('Наша программа включает в себя данные' + 'Ключ:' + key + 'Значение:' + appData[key]);
-  }
+    console.log('Ключ:' + key + ' ' + 'Значение:' + appData[key]);
+  } 
   for (let expensesMonth in expenses[i]){
-    console.log('Расходы за месяц', Object.expensesMonth(expenses[i]).lenght);    
-  }         
+    console.log('Расходы за месяц', appData.expensesMonth(expenses[i]).lenght);    
+  }    
+
+  
+
   
   
   
