@@ -35,7 +35,7 @@ const appData = {
                 for (let i = 0; i < 2; i++) {
                 keys = prompt('Введите обязательную статью расходов?');
                 appData.expenses[keys] = +prompt('Во сколько это обойдется');
-                while (!isNumber(sum)) {
+                while (!isNumber(appData.expenses[keys])) {
                 appData.expenses[keys] = +prompt('Во сколько это обойдется');
                 }
                 }
