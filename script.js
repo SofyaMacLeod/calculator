@@ -26,30 +26,31 @@ const appData = {
       budgetDay: 0,
       budgetMonth: 0,
       expensesMonth: 0,
-      sum: 0,
+
       asking: function(){
             const addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
             appData.addExpenses = addExpenses.toLocaleLowerCase().split(',');
             appData.deposit = confirm('Есть ли у вас депозит в банке?');
-            const getExpensesMonth = function(){
-              let sum = 0;
-            let keys;
-            for (let i = 0; i < 2; i++) {
-            keys = prompt('Введите обязательную статью расходов?');
-            appData.expenses[keys] = +prompt('Во сколько это обойдется');
-            while (!isNumber(sum)) {
-            appData.expenses[keys] = +prompt('Во сколько это обойдется');
-            }
-            }
-            for (let key in appData.expenses){
-              console.log(key + ':' + appData.expenses[key]);
-            }
-            for (let key in appData.expenses) {
-              appData.expensesMonth += appData.expenses[key];
-            }
-            };
-            getExpensesMonth();
+                let keys;
+                for (let i = 0; i < 2; i++) {
+                keys = prompt('Введите обязательную статью расходов?');
+                appData.expenses[keys] = +prompt('Во сколько это обойдется');
+                while (!isNumber(sum)) {
+                appData.expenses[keys] = +prompt('Во сколько это обойдется');
+                }
+                }
+                for (let keys in appData.expenses){
+                  console.log(keys + ':' + appData.expenses[keys]);
+                 }
                 },
+      
+    getExpensesMonth: function(){  
+      let sum = 0; 
+      for (let keys in appData.expenses) {
+        sum += +appData.expenses[keys];
+        }
+        appData.expensesMonth = sum;
+    },         
       
       getBudget: function () {
         appData.budgetMonth = appData.budget - appData.expenses;
