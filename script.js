@@ -59,6 +59,9 @@ const appData = {
                 let keys;
                 for (let i = 0; i < 2; i++) {
                 keys = prompt('Введите обязательную статью расходов?');
+                while (!isNaN(keys)){
+                  keys = prompt('Введите обязательную статью расходов?');
+                }
                 appData.expenses[keys] = +prompt('Во сколько это обойдется');
                 while (!isNumber(appData.expenses[keys])) {
                 appData.expenses[keys] = +prompt('Во сколько это обойдется');
