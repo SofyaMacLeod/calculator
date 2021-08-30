@@ -1,6 +1,37 @@
 /*jshint esversion: 6 */
 'use sctrict';
 
+const calculate = document.getElementById('start');
+console.log(calculate);
+const button1 = document.getElementsByTagName('button')[0];
+console.log(button1);
+const button2 = document.getElementsByTagName('button')[1];
+console.log(button2);
+const check = document.querySelector('.checkbox');
+console.log(check);
+const additional = document.querySelectorAll('.additional_income-item');
+console.log(additional);
+const cancel = document.querySelector('#cancel');
+console.log(cancel);
+const range = document.querySelector('.range');
+console.log(range);
+const input = document.querySelector('.text');
+console.log(input);
+const value = document.getElementsByName('-value');
+console.log(value);
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 const isNumber = function(n){
   return !isNaN(parseFloat(n)) && isFinite(n);
 };
@@ -128,9 +159,9 @@ const appData = {
   console.log ('Наша программа включает в себя данные');
   for (let key in appData){
     console.log('Ключ:' + key + ' ' + 'Значение:' + appData[key]);
-  }
+  } 
   
-
+*/
   
   
   
