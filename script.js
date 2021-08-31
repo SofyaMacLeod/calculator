@@ -3,89 +3,56 @@
 
 const calculate = document.getElementById('start');
 console.log(calculate);
-const button1 = document.getElementsByTagName('button')[0];
-console.log(button1);
-const button2 = document.getElementsByTagName('button')[1];
-console.log(button2);
-const check = document.querySelector('.checkbox');
-console.log(check);
-const additional = document.querySelectorAll('.additional_income-item');
-console.log(additional);
-const cancel = document.querySelector('#cancel');
-console.log(cancel);
-const range = document.querySelector('.range');
-console.log(range);
 
-const month = document.querySelector('.salary-title title');
-console.log(month);
-const sum = document.querySelector('.salary-amount');
-console.log(sum);
-const dop = document.querySelector('.income-title')[0];
-console.log(dop);
-const dop2 = document.querySelector('.income-title')[1];
-console.log(dop2);
-const ex = document.querySelector('.expenses-title title');
-console.log(ex);
-const na = document.querySelector('.expenses-title');
-console.log(na);
-const amount = document.querySelector('.expenses-amount');
-console.log(amount);
-const expenses = document.querySelector('.additional_expenses-title title');
-console.log(expenses);
-const title = document.querySelector('.additional_expenses-item');
-console.log(title);
-const deposit = document.querySelector('.deposit-label title');
-console.log(deposit);
-const checkmark = document.querySelector('.deposit-checkmark');
-console.log(checkmark);
-const per = document.querySelector('.deposit-bank'[0]);
-console.log(per);
-const sb = document.querySelector('.deposit-bank'[1]);
-console.log(sb);
-const gas = document.querySelector('.deposit-bank'[2]);
-console.log(gas);
-const tin = document.querySelector('.deposit-bank'[3]);
-console.log(tin);
-const mts = document.querySelector('.deposit-bank'[4]);
-console.log(mts);
-const abs = document.querySelector('.deposit-bank'[5]);
-console.log(abs);
-const another = document.querySelector('.deposit-bank'[6]);
-console.log(another);
-const amo = document.querySelector('.deposit-amount');
-console.log(amo);
-const perc = document.querySelector('.deposit-percent');
-console.log(perc);
-const peri = document.querySelector('.title period-title');
-console.log(peri);
+const buttonPl = document.getElementsByTagName('button');
+inplus = buttonPl[0];
+explus = buttonPl[1];
+console.log(inplus);
+console.log(explus);
+
+const additionalin = document.querySelectorAll('.additional_income-item');
+console.log(additionalin);
+
+
+const check = document.querySelector('#deposit-check');
+console.log(check);
+
+
+const monthv = document.getElementsByName('budget_month-value')[0];
+console.log(monthv);
+const dayv = document.getElementsByName('budget_day-value')[0];
+console.log(dayv);
+const expensesmonthv = document.getElementsByName('expenses_month-value')[0];
+console.log(expensesmonthv);
+const additionalincomev = document.getElementsByName('additional_income-value')[0];
+console.log(additionalincomev);
+const additionalexpensesv = document.getElementsByName('additional_expenses-value')[0];
+console.log(additionalexpensesv);
+const periodv = document.getElementsByName('income_period-value')[0];
+console.log(periodv);
+const targetmonthvalue = document.getElementsByName('target_month-value')[0];
+console.log(targetmonthvalue);
+
+const salaryAmount = document.querySelector('.salary-amount');
+console.log(salaryAmount);
+
+const incomeTitle = document.querySelector('.income-title');
+console.log(incomeTitle);
+
+const incomeAmount = document.querySelector('.income-amount');
+console.log(incomeAmount);
+
+const expensesTitle = document.querySelector('.expenses-title');
+console.log(expensesTitle);
+
+const expensesAmount = document.querySelector('.expenses-amount');
+console.log(expensesAmount);
+
+const additionalExpenses = document.querySelector('.additional_expenses');
+console.log(additionalExpenses);
+
 const select = document.querySelector('.period-select');
 console.log(select);
-const ti = document.querySelector('.title period-amount');
-console.log(ti);
-
-const monthv = document.getElementsByName('-value')[0];
-console.log(monthv);
-const dayv = document.getElementsByName('-value')[1];
-console.log(dayv);
-const rmonthv = document.getElementsByName('-value')[2];
-console.log(rmonthv);
-const incomev = document.getElementsByName('-value')[3];
-console.log(incomev);
-const expensesv = document.getElementsByName('-value')[4];
-console.log(expensesv);
-const periodv = document.getElementsByName('-value')[5];
-console.log(periodv);
-const totalv = document.getElementsByName('-value')[6];
-console.log(totalv);
-
-
-
-
-
-
-
-
-
 
 
 
