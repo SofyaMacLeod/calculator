@@ -18,45 +18,43 @@ const check = document.querySelector('#deposit-check');
 console.log(check);
 
 
-const monthv = document.getElementsByName('budget_month-value')[0];
+const monthv = document.getElementsByClassName('budget_month-value')[0];
 console.log(monthv);
-const dayv = document.getElementsByName('budget_day-value')[0];
+const dayv = document.getElementsByClassName('budget_day-value')[0];
 console.log(dayv);
-const expensesmonthv = document.getElementsByName('expenses_month-value')[0];
+const expensesmonthv = document.getElementsByClassName('expenses_month-value')[0];
 console.log(expensesmonthv);
-const additionalincomev = document.getElementsByName('additional_income-value')[0];
+const additionalincomev = document.getElementsByClassName('additional_income-value')[0];
 console.log(additionalincomev);
-const additionalexpensesv = document.getElementsByName('additional_expenses-value')[0];
+const additionalexpensesv = document.getElementsByClassName('additional_expenses-value')[0];
 console.log(additionalexpensesv);
-const periodv = document.getElementsByName('income_period-value')[0];
+const periodv = document.getElementsByClassName('income_period-value')[0];
 console.log(periodv);
-const targetmonthvalue = document.getElementsByName('target_month-value')[0];
+const targetmonthvalue = document.getElementsByClassName('target_month-value')[0];
 console.log(targetmonthvalue);
 
 const salaryAmount = document.querySelector('.salary-amount');
 console.log(salaryAmount);
 
-const incomeTitle = document.querySelector('.income-title');
-console.log(incomeTitle);
-
 const incomeAmount = document.querySelector('.income-amount');
 console.log(incomeAmount);
 
-const expensesTitle = document.querySelector('.expenses-title');
-console.log(expensesTitle);
-
 const expensesAmount = document.querySelector('.expenses-amount');
 console.log(expensesAmount);
-
-const additionalExpenses = document.querySelector('.additional_expenses');
-console.log(additionalExpenses);
 
 const select = document.querySelector('.period-select');
 console.log(select);
 
 
+const incomeTitle = document.getElementsByClassName('income-title')[0];
+console.log(incomeTitle);
+
+const expensesTitle = document.getElementsByClassName('expenses-title')[0];
+console.log(expensesTitle);
 
 
+const additionalExpenses = document.getElementsByClassName('additional_expenses')[0].getElementsByClassName('title')[0];
+console.log(additionalExpenses);
 
 
 
