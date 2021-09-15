@@ -17,16 +17,13 @@ const targetmonthvalue = document.getElementsByClassName('target_month-value')[0
 const salaryAmount = document.querySelector('.salary-amount');
 const expensesItems = document.querySelectorAll('.expenses-items');
 const select = document.querySelector('.period-select');
+const periodAmount = document.querySelector('.period-amount');
 const incomeTitle = document.getElementsByClassName('income-title')[0];
 const expensesTitle = document.getElementsByClassName('expenses-title')[0];
 const additionalExpenses = document.getElementsByClassName('additional_expenses')[0].getElementsByClassName('title')[0];
 const additionalExpensesItem = document.querySelector('.additional_expenses-item');
 const targetAmount = document.querySelector('.target-amount');
 const incomeItem = document.querySelectorAll('.income-items');
-
-
-
-
 
 
 
@@ -58,7 +55,6 @@ const appData = {
     appData.budget = +salaryAmount.value;
 
     appData.getExpenses();
-    appData.getIncome();
     appData.getExpensesMonth();
     appData.getBudget();
     appData.getAddExpenses();
@@ -109,26 +105,34 @@ const appData = {
       periodv.value = appData.calcSavedMoney();
 
       select.addEventListener('change', function(){
-        periodv.value = appData.calcSavedMoney();
+        select.value = appData.calcSavedMoney();
       });
     },
 
-    getIncome: function(){
-      if( confirm('Есть ли у вас дополнительный источник заработка?')){
-        let itemIncome = prompt('Какой у вас дополнительный заработок?', 'Таксую');
-        while (!isNaN(itemIncome)){
-          itemIncome = prompt('Какой у вас дополнительный заработок?');
-        }
-        let cashIncome = prompt('Сколько приносит дополнительный доход?', 10000);
-        while (!isNumber(cashIncome)){
-          cashIncome = prompt('Сколько приносит дополнительный доход?');
-        }
-        appData.income[itemIncome] = cashIncome;
-      }
+    addIncomeBlock: function(){
+      let cloneIncomeItems = incomeItem[0].cloneNode(true);
+      incomeItem[0].parentNode.insertBefore(cloneIncomeItems, inplus);
+      incomeItem[0] = document.querySelectorAll('.income-items');
 
-      for (let key in appData.income){
-        appData.incomeMonth += +appData.income[key];
+      if(incomeItem.length === 3){
+        inplus.style.display = 'none';
       }
+      cloneIncomeItems.querySelectorAll('input').forEach((item)=>{
+        item.value = '';
+      });
+
+    },
+
+    getIncome: function(){
+      incomeItem.forEach(function(item){
+        let itemIncome = item.querySelector('.income-title').value;
+        let cashIncome = item.querySelector('.income-amount').value;
+
+        if (itemIncome !== '' && cashIncome !== ''){
+          appData.income[itemIncome] = cashIncome;
+        }
+
+      });
     },
 
     getAddExpenses: function(){
@@ -197,8 +201,14 @@ const appData = {
 
     };
   
+  
   start.addEventListener('click', appData.start);
-  explus.addEvenListener('click', appData.eddExpensesBlock);
+  explus.addEventListener('click', appData.addExpensesBlock);
+  inplus.addEventListener('click', appData.addIncomeBlock);
+
+  select.addEventListener('change', function(){
+  periodAmount.innerHTML = select.value;
+});
   
   
   
@@ -207,8 +217,7 @@ const appData = {
    
 
   
-  
- 
+
   
 
 
