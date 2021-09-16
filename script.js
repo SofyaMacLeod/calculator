@@ -15,7 +15,8 @@ const additionalexpensesv = document.getElementsByClassName('additional_expenses
 const periodv = document.getElementsByClassName('income_period-value')[0];
 const targetmonthvalue = document.getElementsByClassName('target_month-value')[0];
 const salaryAmount = document.querySelector('.salary-amount');
-const expensesItems = document.querySelectorAll('.expenses-items');
+let expensesItems = document.querySelectorAll('.expenses-items');
+let incomeItems = document.querySelectorAll('.income-items');
 const select = document.querySelector('.period-select');
 const periodAmount = document.querySelector('.period-amount');
 const incomeTitle = document.getElementsByClassName('income-title')[0];
@@ -23,7 +24,7 @@ const expensesTitle = document.getElementsByClassName('expenses-title')[0];
 const additionalExpenses = document.getElementsByClassName('additional_expenses')[0].getElementsByClassName('title')[0];
 const additionalExpensesItem = document.querySelector('.additional_expenses-item');
 const targetAmount = document.querySelector('.target-amount');
-const incomeItem = document.querySelectorAll('.income-items');
+
 
 
 
@@ -73,14 +74,14 @@ const appData = {
     }, 
 
     addExpensesBlock: function(){
-       let cloneExpensesItems = expensesItems[0].cloneNode(true);
-        expensesItems[0].parentNode.insertBefore(cloneExpensesItems, explus);
-        expensesItems[0] = document.querySelectorAll('.expenses-items');
+       let cloneExpensesItem = expensesItems[0].cloneNode(true);
+        expensesItems[0].parentNode.insertBefore(cloneExpensesItem, explus);
+        expensesItems = document.querySelectorAll('.expenses-items');
 
         if(expensesItems.length === 3){
           explus.style.display = 'none';
         }
-        cloneExpensesItems.querySelectorAll('input').forEach((item)=>{
+        cloneExpensesItem.querySelectorAll('input').forEach((item)=>{
           item.value = '';
         });
     }, 
@@ -110,21 +111,21 @@ const appData = {
     },
 
     addIncomeBlock: function(){
-      let cloneIncomeItems = incomeItem[0].cloneNode(true);
-      incomeItem[0].parentNode.insertBefore(cloneIncomeItems, inplus);
-      incomeItem[0] = document.querySelectorAll('.income-items');
+      let cloneIncomeItem = incomeItems[0].cloneNode(true);
+      incomeItems[0].parentNode.insertBefore(cloneIncomeItem, inplus);
+      incomeItems = document.querySelectorAll('.income-items');
 
-      if(incomeItem.length === 3){
+      if(incomeItems.length === 3){
         inplus.style.display = 'none';
       }
-      cloneIncomeItems.querySelectorAll('input').forEach((item)=>{
+      cloneIncomeItem.querySelectorAll('input').forEach((item)=>{
         item.value = '';
       });
 
     },
 
     getIncome: function(){
-      incomeItem.forEach(function(item){
+      incomeItems.forEach(function(item){
         let itemIncome = item.querySelector('.income-title').value;
         let cashIncome = item.querySelector('.income-amount').value;
 
