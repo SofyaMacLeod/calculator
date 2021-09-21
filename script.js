@@ -148,14 +148,14 @@ const appData = {
     },
 
     getIncome: function(){
-      incomeItems.forEach(function(item){
+      incomeItems.array.forEach(function(item){
         let itemIncome = item.querySelector('.income-title').value;
         let cashIncome = item.querySelector('.income-amount').value;
 
         if (itemIncome !== '' && cashIncome !== ''){
           appData.income[itemIncome] = cashIncome;
         }
-      });
+      }, this);
 
       for (let key in this.income)
         {
@@ -165,24 +165,24 @@ const appData = {
 
     getAddExpenses: function(){
       let addExpenses = additionalExpensesItem.value.split(','); 
-      addExpenses.forEach(function(item){
+      addExpenses.array.forEach(function(item){
         item = item.trim();
         if (item !== ''){
           appData.addExpenses.push(item);
         }
-      }
+      }, this
       );
 
     },
 
     getAddIncome: function(){
-      additionalin.forEach(function(item){
+      additionalin.array.forEach(function(item){
         let itemValue = item.value.trim();
         if (itemValue !== ''){
           appData.addIncome.push(itemValue);
         }
 
-      });
+      }, this);
 
     },
       
@@ -233,17 +233,17 @@ const appData = {
         let inputTextData = document.querySelectorAll('.data input [type = text]');
         let resultInputAll = document.querySelectorAll('.result input [type = text]');
 
-        inputTextData.forEach(function(elem){
+        inputTextData.array.forEach(function(elem){
           elem.value = '';
           elem.removeAttribute('disabled');
           select.value = '0';
           periodAmount.innerHTML = select.value;
-        });
+        }, this);
 
-        resultInputAll.forEach(function(elem)
+        resultInputAll.array.forEach(function(elem)
         {
           elem.value = '';
-        });
+        }, this);
 
         for (let i = 1; i < incomeItems.length; i ++){
           incomeItems[i].parentNode.removeChild(incomeItems[i]);
