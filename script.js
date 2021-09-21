@@ -148,14 +148,14 @@ const appData = {
     },
 
     getIncome: function(){
-      incomeItems.array.forEach(function(item){
+      incomeItems.forEach(function(item){
         let itemIncome = item.querySelector('.income-title').value;
         let cashIncome = item.querySelector('.income-amount').value;
 
         if (itemIncome !== '' && cashIncome !== ''){
           appData.income[itemIncome] = cashIncome;
         }
-      }, this);
+      });
 
       for (let key in this.income)
         {
@@ -165,24 +165,24 @@ const appData = {
 
     getAddExpenses: function(){
       let addExpenses = additionalExpensesItem.value.split(','); 
-      addExpenses.array.forEach(function(item){
+      addExpenses.forEach(function(item){
         item = item.trim();
         if (item !== ''){
           appData.addExpenses.push(item);
         }
-      }, this
+      }
       );
 
     },
 
     getAddIncome: function(){
-      additionalin.array.forEach(function(item){
+      additionalin.forEach(function(item){
         let itemValue = item.value.trim();
         if (itemValue !== ''){
           appData.addIncome.push(itemValue);
         }
 
-      }, this);
+      });
 
     },
       
