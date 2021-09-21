@@ -102,7 +102,7 @@ const appData = {
       expensesmonthv.value = this.expensesMonth;
       additionalexpensesv.value = this.addExpenses.join(', '); 
       additionalincomev.value = this.addIncome.join(', '); 
-      targetmonthvalue.value = this.ceil(this.getTargetMonth());
+      targetmonthvalue.value = Math.ceil(this.getTargetMonth());
       periodv.value = this.calcSavedMoney();
 
       select.addEventListener('change', function(){
@@ -219,7 +219,7 @@ const appData = {
           do 
           {
             this.moneyDeposit = prompt('Какая сумма заложена', '10000');
-          }  while (!isNumber(appData.moneyDeposit));   
+          }  while (!isNumber(this.moneyDeposit));   
         }
       }, 
       
