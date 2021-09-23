@@ -19,6 +19,7 @@ const salaryAmount = document.querySelector('.salary-amount');
 let expensesItems = document.querySelectorAll('.expenses-items');
 let incomeItems = document.querySelectorAll('.income-items');
 const select = document.querySelector('.period-select');
+const incPeriodValue = document.querySelector('.result-income_period input');
 const periodAmount = document.querySelector('.period-amount');
 const incomeTitle = document.getElementsByClassName('income-title')[0];
 const expensesTitle = document.getElementsByClassName('expenses-title')[0];
@@ -106,7 +107,7 @@ const appData = {
       periodv.value = this.calcSavedMoney();
 
       select.addEventListener('change', function(){
-        select.value = this.calcSavedMoney();
+        incPeriodValue.value = this.calcSavedMoney();
       });
     },
 
@@ -201,7 +202,7 @@ const appData = {
 
       
       getTargetMonth: function(){
-        return targetAmount.value / this.getBudget;
+        return targetAmount.value / this.budgetMonth;
       },
 
       getStatusIncome: function(){
