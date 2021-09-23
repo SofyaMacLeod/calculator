@@ -128,9 +128,9 @@ const appData = {
         let itemExpenses = item.querySelector('.expenses-title').value;
         let cashExpenses = item.querySelector('.expenses-amount').value;
         if (itemExpenses !== '' && cashExpenses !== ''){
-          appData.expenses[itemExpenses] = cashExpenses;
+          this.expenses[itemExpenses] = cashExpenses;
         }
-      });
+      },this);
     },
 
     addIncomeBlock: function(){
@@ -153,9 +153,9 @@ const appData = {
         let cashIncome = item.querySelector('.income-amount').value;
 
         if (itemIncome !== '' && cashIncome !== ''){
-          appData.income[itemIncome] = cashIncome;
+          this.income[itemIncome] = cashIncome;
         }
-      });
+      }, this);
 
       for (let key in this.income)
         {
@@ -168,9 +168,9 @@ const appData = {
       addExpenses.forEach(function(item){
         item = item.trim();
         if (item !== ''){
-          appData.addExpenses.push(item);
+          this.addExpenses.push(item);
         }
-      }
+      }, this
       );
 
     },
@@ -179,10 +179,10 @@ const appData = {
       additionalin.forEach(function(item){
         let itemValue = item.value.trim();
         if (itemValue !== ''){
-          appData.addIncome.push(itemValue);
+          this.addIncome.push(itemValue);
         }
 
-      });
+      }, this);
 
     },
       
@@ -233,14 +233,14 @@ const appData = {
         let inputTextData = document.querySelectorAll('.data input [type = text]');
         let resultInputAll = document.querySelectorAll('.result input [type = text]');
 
-        inputTextData.array.forEach(function(elem){
+        inputTextData.forEach(function(elem){
           elem.value = '';
           elem.removeAttribute('disabled');
           select.value = '0';
           periodAmount.innerHTML = select.value;
         }, this);
 
-        resultInputAll.array.forEach(function(elem)
+        resultInputAll.forEach(function(elem)
         {
           elem.value = '';
         }, this);
