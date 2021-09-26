@@ -56,7 +56,7 @@ AppData.prototype.check = function(){
 
 AppData.prototype.start = function(){
     if (salaryAmount.value === ''){
-      alert('Ошибка, поле нужно заполнить!');
+      cancel.style.display = 'block';
       return; 
     }
 
@@ -79,6 +79,8 @@ AppData.prototype.start = function(){
     this.getInfoDeposit();
     this.getStatusIncome();
     this.showResult();
+
+   
   };
 
 
@@ -127,7 +129,7 @@ AppData.prototype.start = function(){
       let cashExpenses = item.querySelector('.expenses-amount').value;
       if (itemExpenses !== '' && cashExpenses !== ''){
         this.expenses[itemExpenses] = cashExpenses;
-      }
+      } 
     },this);
   };
 
@@ -252,25 +254,22 @@ AppData.prototype.getAddExpenses = function(){
 
 
     AppData.prototype.eventsListeners = function(){
-      start.addEventListener('click',function(){
-        const inputD = document.querySelectorAll('input');
-        let array = [inputD];
-        inputD.forEach(function(elem){
-          elem.disabled = true;
-        });
-
+        start.addEventListener('click', this.start);
         explus.addEventListener('click', this.addExpensesBlock);
         inplus.addEventListener('click', this.addIncomeBlock);
-  
-    start.style.display = 'none';
-    if (salaryAmount.value !== ''){
-      cancel.style.display = 'block';
-      start.addEventListener('click', () => { this.start(); });
-    }
-        
-      });
+        salaryAmount.addEventListener('keyup', this.check);
+        cancel.addEventListener('click', this.reset.bind(AppData));
 
-    };
+        
+      select.addEventListener('change', function(){
+      periodAmount.innerHTML = select.value;
+  });
+        
+           };
 
 const appData = new AppData();
 AppData.prototype.eventsListeners();
+
+
+
+
