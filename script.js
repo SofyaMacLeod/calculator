@@ -48,19 +48,16 @@ const AppData = function(){
 
 };
 
-AppData.prototype.check = function(){
-  if (salaryAmount.value !== ''){
-    start.removeAttribute('disabled');
-}
-};
 
 AppData.prototype.start = function(){
-    if (salaryAmount.value === ''){
-      cancel.style.display = 'block';
-      return; 
-    }
+   
+  if (salaryAmount.value === ''){
+    alert('Ошибка, поле нужно заполнить!');
+    return; 
+}
+  cancel.style.display = 'block';
 
-    let allInput = document.querySelectorAll('.data input[type = text]');
+  let allInput = document.querySelectorAll('.data input[type = text]');
     allInput.forEach(function(item){
         item.setAttribute('disabled', 'true');    
     });
@@ -258,7 +255,7 @@ AppData.prototype.getAddExpenses = function(){
         explus.addEventListener('click', this.addExpensesBlock);
         inplus.addEventListener('click', this.addIncomeBlock);
         salaryAmount.addEventListener('keyup', this.check);
-        cancel.addEventListener('click', this.reset.bind(AppData));
+        cancel.addEventListener('click', this.reset.bind(appData));
 
         
       select.addEventListener('change', function(){
