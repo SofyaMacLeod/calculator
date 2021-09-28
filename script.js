@@ -251,7 +251,7 @@ AppData.prototype.getAddExpenses = function(){
 
 
     AppData.prototype.eventsListeners = function(){
-        start.addEventListener('click', this.start);
+        start.addEventListener('click', this.start.bind(appData));
         explus.addEventListener('click', this.addExpensesBlock);
         inplus.addEventListener('click', this.addIncomeBlock);
         salaryAmount.addEventListener('keyup', this.check);
